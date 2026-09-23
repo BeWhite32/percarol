@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Per Carol aka CARTOLINA</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-out {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1 id="title">
+        Ciao Gay o Carlotta o Cartolina sei molto carina &lt;3
+    </h1>
+
+    <p id="message">
+        Ho preparato una cosina per te.
+    </p>
+
+    <button id="nextButton" onclick="nextMessage()">
+        Clicca sto pulsantone wooo
+    </button>
+
+</div>
+
+<script>
+
+    const messages = [
+        "è passato 1 mese e non sei impazzita per come vivo incredibile",
+        "Grazie per tutte le risate, i momenti da deficenti insieme e il supporto che mi dai.",
+        "Sei molto gay e molto speciale per me.",
+        "Ti amo tantissimo e vinco sempre io <3"
+    ];
+
+    let index = 0;
+
+    function nextMessage() {
+
+        document.getElementById("message").innerText = messages[index];
+
+        index++;
+
+        if (index === messages.length) {
+
+            document.getElementById("nextButton").style.display = "none";
+
+            setTimeout(() => {
+
+                const card = document.querySelector(".card");
+
+                card.classList.add("fade-out");
+
+                setTimeout(() => {
+
+     card.innerHTML = `
+    <h1>Ok, forse ho esagerato boh chi lo sa </h1>
+
+    <p>
+        Ma visto che sei arrivata fin qui,<br>
+       	che cazzo ci fai qui io boh
+    </p>
+
+    <button onclick="schermataTre()">
+        clicca per continuare se vuoi 
+    </button>
+`;
+
+                    card.classList.remove("fade-out");
+
+                }, 1000);
+
+            }, 2000);
+        }
+    }
+	function schermataTre() {
+
+    const card = document.querySelector(".card");
+
+    card.classList.add("fade-out");
+
+    setTimeout(() => {
+
+        card.innerHTML = `
+            <h1>TI AMO TANTO TANTO E NON VEDO L'ORA DI ANDARE AVANTI CON TE E CANTARTI TUTTE LE OPENING IN GIAPPONESE </h1>
+
+            <p>
+                P.S sei gay ma ti amo anche per questo
+            </p>
+        `;
+
+        card.classList.remove("fade-out");
+
+    }, 1000);
+}
+
+</script>
+
+</body>
+</html>
